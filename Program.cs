@@ -3,6 +3,7 @@
 namespace calculadora
 {
 
+
     internal class Program
     {
         private static void Main(string[] args)
@@ -58,47 +59,139 @@ namespace calculadora
             }
             static void somar()
             {
-                Console.WriteLine("Digite um número:");
-                int n1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Digite outro número:");
-                int n2 = Convert.ToInt32(Console.ReadLine());
-                int soma = n1 + n2;
-                Console.WriteLine($"O resultado da sua soma é : {n1} + {n2} = {soma}");
+               
+                try
+                {
+                    Console.WriteLine("Digite um número:");
+                    double n1 = Convert.ToDouble(Console.ReadLine());
+
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Digite outro número:");
+                            double n2 = Convert.ToDouble(Console.ReadLine());
+                            double soma = n1 + n2;
+                            Console.WriteLine($"O resultado da sua soma é : {n1} + {n2} = {soma}");
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("O número digitado é inválido! Tente novamente.");
+
+                        }
+                    }
+
+                }
+                catch
+                {
+                    Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                    somar();
+                }
+
 
             }
 
             static void subtrair()
             {
-                Console.WriteLine("Digite um número:");
-                int n1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Digite outro número:");
-                int n2 = Convert.ToInt32(Console.ReadLine());
-                int sub = n1 - n2;
-                Console.WriteLine($"O resultado da sua subtração é: {n1} - {n2} = {sub}");
+                try
+                {
+                    Console.WriteLine("Digite um número:");
+                    double n1 = Convert.ToDouble(Console.ReadLine());
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Digite outro número:");
+                            double n2 = Convert.ToDouble(Console.ReadLine());
+                            double sub = n1 - n2;
+                            Console.WriteLine($"O resultado da sua subtração é: {n1} - {n2} = {sub}");
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Você digitou um número inválido! Tente novamente.");
+                        }
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Você digitou um número inválido! Tente novamente.");
+                    subtrair();
+                }
             }
 
             static void multiplicar()
             {
-                Console.WriteLine("Digite um número:");
-                int n1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Digite outro número:");
-                int n2 = Convert.ToInt32(Console.ReadLine());
-                int mult = n1 * n2;
-                Console.WriteLine($"O resultado da sua multiplicação é: {n1} X {n2} = {mult}");
+                try
+                {
+                    Console.WriteLine("Digite um número:");
+                    double n1 = Convert.ToDouble(Console.ReadLine());
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Digite outro número:");
+                            double n2 = Convert.ToDouble(Console.ReadLine());
+                            double mult = n1 * n2;
+                            Console.WriteLine($"O resultado da sua multiplicação é: {n1} X {n2} = {mult}");
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("O número digitado é inválido! Tente novamente.");
 
-            }
+                        }
 
-            static void dividir()
-            {
-                Console.WriteLine("Digite um número:");
-                double n1 = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Digite outro número:");
-                double n2 = Convert.ToDouble(Console.ReadLine());
-                double dividir = n1 / n2;
-                double restodiv = n1 % n2;
-                Console.WriteLine($"O resultado da sua divisão é: {n1} % {n2} = {dividir} com resto {restodiv}");
+
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                    multiplicar();
+                }
+
             }
 
         }
+
+        static void dividir()
+        {
+            try
+            {
+                Console.WriteLine("Digite um número:");
+                double n1 = Convert.ToDouble(Console.ReadLine());
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("Digite outro número:");
+                        double n2 = Convert.ToDouble(Console.ReadLine());
+                        double dividir = n1 / n2;
+                        double restodiv = n1 % n2;
+                        Console.WriteLine($"O resultado da sua divisão é: {n1} % {n2} = {dividir} com resto {restodiv}");
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                dividir();
+            }
+        }
+
     }
 }
+
+
+
+
+
+
+
