@@ -25,7 +25,9 @@ namespace calculadora
                 Console.WriteLine("----------------------------------");
                 Console.WriteLine("|           4.Divisão              |");
                 Console.WriteLine("----------------------------------");
-                Console.WriteLine("|             5.Sair               |");
+                Console.WriteLine("|           5.Potência             |");
+                Console.WriteLine("----------------------------------");
+                Console.WriteLine("|             6.Sair               |");
                 Console.WriteLine("----------------------------------");
 
                 Console.WriteLine("Escolha uma opção: ");
@@ -47,6 +49,9 @@ namespace calculadora
                             dividir();
                             break;
                         case 5:
+                            potencia();
+                            break;
+                        case 6:
                             continuar = false;
                             break;
                     }
@@ -154,45 +159,78 @@ namespace calculadora
 
             }
 
-        }
-
-        static void dividir()
-        {
-            try
+            static void dividir()
             {
-                Console.WriteLine("Digite um número:");
-                double n1 = Convert.ToDouble(Console.ReadLine());
-                while (true)
+                try
                 {
+                    Console.WriteLine("Digite um número:");
+                    double n1 = Convert.ToDouble(Console.ReadLine());
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Digite outro número:");
+                            double n2 = Convert.ToDouble(Console.ReadLine());
+                            if (n2 != 0)
+                            {
+                                double dividir = n1 / n2;
+                                double restodiv = n1 % n2;
+                                Console.WriteLine($"O resultado da sua divisão é: {n1} ÷ {n2} = {dividir} com resto {restodiv}");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Não é possível dividir um número por 0.");
+                            }
+                        }
+                        catch
+                        {
+                            Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                        }
+                    }
+
+                }
+                catch
+                {
+                    Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                    dividir();
+                }
+            }
+
+            static void potencia()
+            {
+                try
+                {
+                    Console.WriteLine("Digite um número:");
+                    double n1 = Convert.ToDouble(Console.ReadLine());
+                    while (true)
+                    { 
                     try
                     {
-                        Console.WriteLine("Digite outro número:");
+                        Console.WriteLine("Digite o expoente:");
                         double n2 = Convert.ToDouble(Console.ReadLine());
-                        if (n2 != 0)
-                        {
-                            double dividir = n1 / n2;
-                            double restodiv = n1 % n2;
-                            Console.WriteLine($"O resultado da sua divisão é: {n1} ÷ {n2} = {dividir} com resto {restodiv}");
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Não é possível dividir um número por 0.");
-                        }
+                         double potencia = Math.Pow(n1,n2);
+                        Console.WriteLine($"O resultado da pontência de: {n1}^{n2} = {potencia} ");
+                        break;
                     }
                     catch
                     {
-                        Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                        Console.WriteLine("O número digitado é inválido!");
+
+
+                    }
                     }
                 }
-                
+                catch
+                {
+                    Console.WriteLine("O número digitado é inválido! Tente novamente.");
+                    potencia();
+                }
             }
-            catch
-            {
-                Console.WriteLine("O número digitado é inválido! Tente novamente.");
-                dividir();
-            }
+
         }
+
+       
 
     }
 }
