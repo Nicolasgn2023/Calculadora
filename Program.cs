@@ -168,16 +168,24 @@ namespace calculadora
                     {
                         Console.WriteLine("Digite outro número:");
                         double n2 = Convert.ToDouble(Console.ReadLine());
-                        double dividir = n1 / n2;
-                        double restodiv = n1 % n2;
-                        Console.WriteLine($"O resultado da sua divisão é: {n1} % {n2} = {dividir} com resto {restodiv}");
-                        break;
+                        if (n2 != 0)
+                        {
+                            double dividir = n1 / n2;
+                            double restodiv = n1 % n2;
+                            Console.WriteLine($"O resultado da sua divisão é: {n1} ÷ {n2} = {dividir} com resto {restodiv}");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Não é possível dividir um número por 0.");
+                        }
                     }
                     catch
                     {
                         Console.WriteLine("O número digitado é inválido! Tente novamente.");
                     }
                 }
+                
             }
             catch
             {
